@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gate;
     private Rigidbody rb;
     public int score;
+    public AudioSource coinSound;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -50,8 +51,9 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score++;
+            coinSound.Play();
             SetScoreText();
-            if(score >= 5)
+            if(score >= 10)
             {
                 gate.gameObject.SetActive(false);
             }
