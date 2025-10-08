@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float speed;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
             score++;
             coinSound.Play();
             SetScoreText();
-            if(score >= 10)
+            if(score >= 1)
             {
                 gate.gameObject.SetActive(false);
             }
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
     void SetScoreText()
     {
         scoreText.text = "Score: " + score.ToString();
-        if (score >= 10)
+        if (score >= 1)
         {
             winText.text = "You Win, press R to restart or ESC to exit";
         }
